@@ -61,7 +61,7 @@ public class SC_FPSController : MonoBehaviour
         CharacterController.Move(moveDirection * Time.deltaTime);
         if (canMove)
         {
-            rotaionX += Input.GetAxis("Mouse Y") * lookSpeed;
+            rotaionX += -Input.GetAxis("Mouse Y") * lookSpeed;
             rotaionX = Mathf.Clamp(rotaionX, -lookXlimit, lookXlimit);
             playerCamera.transform.localRotation = Quaternion.Euler(rotaionX, 0, 0);
             transform.rotation *= Quaternion.Euler(0, Input.GetAxis("Mouse X") * lookSpeed, 0);
