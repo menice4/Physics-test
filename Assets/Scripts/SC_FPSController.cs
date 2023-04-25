@@ -56,9 +56,9 @@ public class SC_FPSController : MonoBehaviour
         }
         if (!CharacterController.isGrounded)
         {
-            movementDirectionY -= gravity * Time.deltaTime;
+            movementDirectionY -= gravity * UnityEngine.Time.deltaTime;
         }
-        CharacterController.Move(moveDirection * Time.deltaTime);
+        CharacterController.Move(moveDirection * UnityEngine.Time.deltaTime);
         if (canMove)
         {
             rotaionX += -Input.GetAxis("Mouse Y") * lookSpeed;
