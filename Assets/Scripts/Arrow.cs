@@ -16,7 +16,7 @@ public class Arrow : MonoBehaviour
     // Update is called once per frame
     private void Update()
     {
-        if(rb.velocity.magnitude >= 0.2f)
+        if(rb.velocity.magnitude >= 0f)
         transform.rotation = Quaternion.LookRotation(rb.velocity);
         
     }

@@ -6,8 +6,12 @@ using UnityEngine;
 [RequireComponent(typeof(CharacterController))]
 
 
-public class SC_FPSController : MonoBehaviour
+public class SC_FPSController : MonoBehaviour 
 {
+    private float updateCount = 0;
+    private float fixedUpdateCount = 0;
+    private float updateUpdateCountPerSecond;
+    private float updateFixedUpdateCountPerSecond;
 
     public float walkingspeed = 7.5f;
     public float runningSpeed = 11.5f;
@@ -56,9 +60,9 @@ public class SC_FPSController : MonoBehaviour
         }
         if (!CharacterController.isGrounded)
         {
-            movementDirectionY -= gravity * UnityEngine.Time.deltaTime;
+            movementDirectionY -= gravity * UnityEngine.Time.unscaledDeltaTime;
         }
-        CharacterController.Move(moveDirection * UnityEngine.Time.deltaTime);
+        CharacterController.Move(moveDirection * UnityEngine.Time.unscaledDeltaTime);
         if (canMove)
         {
             rotaionX += -Input.GetAxis("Mouse Y") * lookSpeed;
