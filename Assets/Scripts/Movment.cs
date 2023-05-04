@@ -5,7 +5,7 @@ using UnityEngine;
 public class Movment : MonoBehaviour
 {
     [SerializeField] float mouseSensitivity = 3f;
-    public float movementSpeed = 10;
+    public float movementSpeed = 5f;
     [SerializeField] Transform cameraTransform;
     Vector2 look;
 
@@ -29,7 +29,7 @@ public class Movment : MonoBehaviour
         input += transform.right * x;
         input = Vector3.ClampMagnitude(input, 1f);
 
-        transform.Translate(input * movementSpeed * Time.deltaTime, Space.World);
+        transform.Translate(input * movementSpeed * Time.unscaledDeltaTime, Space.World);
     }
 
     void UpdateLook()
