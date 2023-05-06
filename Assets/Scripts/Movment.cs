@@ -6,8 +6,19 @@ public class Movment : MonoBehaviour
 {
     [SerializeField] float mouseSensitivity = 3f;
     public float movementSpeed = 10;
+    [SerializeField] float jumpspeed = 5f;
+    [SerializeField] float mass = 1f;
+
     [SerializeField] Transform cameraTransform;
+    CharacterController controller;
+    Vector3 velocity;
     Vector2 look;
+
+    private void Awake()
+    {
+        controller = GetComponent<CharacterController>();
+
+    }
 
     void Start()
     {
@@ -15,10 +26,16 @@ public class Movment : MonoBehaviour
     }
     void Update()
     {
+        UpdateGravity();
         UpdateMovement();
         UpdateLook();
     }
-
+   
+    void UpdateGravity()
+    {
+        var gravity = Physics.gravity * mass * Time.deltaTime;
+        velocity.y = controller.isGrounded ? -1f : velocity.y + gravity.y;
+    }
     void UpdateMovement()
     {
         var x = Input.GetAxis("Horizontal");
@@ -29,7 +46,12 @@ public class Movment : MonoBehaviour
         input += transform.right * x;
         input = Vector3.ClampMagnitude(input, 1f);
 
-        transform.Translate(input * movementSpeed * Time.deltaTime, Space.World);
+        if(Input.GetButton("Jump") && controller.isGrounded)
+        {
+            velocity.y += jumpspeed;
+        }
+      
+        controller.Move((input * movementSpeed + velocity) * Time.deltaTime);
     }
 
     void UpdateLook()

@@ -51,12 +51,6 @@ public class TImeSlow : MonoBehaviour
             Debug.Log("Movement speed" + player.movementSpeed);
 
 
-
-
-
-
-
-
         }
         else if (Input.GetKeyDown(KeyCode.Q) && Slowed == true )
         {
@@ -65,9 +59,6 @@ public class TImeSlow : MonoBehaviour
             Time.timeScale = 1f;
             Time.fixedDeltaTime = 0.02f;
            
-
-
-
 
         }
 
