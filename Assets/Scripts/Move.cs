@@ -16,7 +16,7 @@ public class Move : MonoBehaviour
     public float speed = 2;
     void Update()
     {
-        transform.Translate(Vector3.forward * speed * Time.deltaTime);
+        transform.Translate(Vector3.down * speed * Time.deltaTime);
    
     }
 }
