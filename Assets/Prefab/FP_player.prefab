@@ -96,6 +96,7 @@ MonoBehaviour:
   Move: 0
   unlock: 0
   Timeleft: 0.5
+  inputDeviceCharacteristics: 0
 --- !u!1 &1623593737930318165
 GameObject:
   m_ObjectHideFlags: 0
@@ -259,7 +260,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 3094494620372931771, guid: 45df4d78c71a8ae4e9fa499108f71c49, type: 3}
       propertyPath: m_LocalPosition.y
-      value: 1.021
+      value: 1.19
       objectReference: {fileID: 0}
     - target: {fileID: 3094494620372931771, guid: 45df4d78c71a8ae4e9fa499108f71c49, type: 3}
       propertyPath: m_LocalPosition.z

@@ -16,7 +16,7 @@ public class Gun : MonoBehaviour
 
     void Start()
     {
-        Initlize();
+        
     }
 
     private void Initlize()
@@ -65,7 +65,8 @@ public class Gun : MonoBehaviour
 
     void Update()
     {
-        if(!targetDevice.isValid)
+        
+        if (!targetDevice.isValid)
         {
             Initlize();
         }
@@ -79,17 +80,19 @@ public class Gun : MonoBehaviour
     private void UpdateGun()
     {
         targetDevice.TryGetFeatureValue(CommonUsages.trigger, out float triggerValue);
-        if (Fired == false && triggerValue > 0.1f  )
+        if (Fired == false && triggerValue > 0.8  )
         {
-
+            
             var bullet = Instantiate(bulletPrefab, bulletSpawnPoint.position, bulletSpawnPoint.rotation);
             bullet.GetComponent<Rigidbody>().velocity = bulletSpawnPoint.forward * bulletSpeed;
             Fired = true;
 
 
+
         }
-        else if (Fired == true && triggerValue < 0.1f)
+        else if (Fired == true && triggerValue < 0.5)
         {
+            
             Fired = false;
 
         }
