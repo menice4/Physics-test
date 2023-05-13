@@ -1,6 +1,7 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.XR;
 
 public class TImeSlow : MonoBehaviour
 {
@@ -12,14 +13,16 @@ public class TImeSlow : MonoBehaviour
     public bool Move;
     public bool unlock;
     public float Timeleft = .5f;
+    private InputDevice targetDevice;
+    public InputDeviceCharacteristics inputDeviceCharacteristics;
 
 
 
 
     // Start is called before the first frame update
-     void Awake()
+    void Awake()
     {
-        player = GameObject.Find("FP_player").GetComponent<Movment>();
+        player = GameObject.Find("VR_rig").GetComponent<Movment>();
 
     }
     void Start()
@@ -29,16 +32,42 @@ public class TImeSlow : MonoBehaviour
         Slowed = false;
         Debug.Log("time"+Time.timeScale);
         Debug.Log("Movement speed" + player.movementSpeed);
+        Initlize();
 
 
 
     }
+    private void Initlize()
+    {
+        List<InputDevice> devices = new List<InputDevice>();
+        InputDeviceCharacteristics leftcontrollerCharacteristics = InputDeviceCharacteristics.Left | InputDeviceCharacteristics.Controller;
+        InputDevices.GetDevicesWithCharacteristics(leftcontrollerCharacteristics, devices);
+
+        if (devices.Count > 0)
+        {
+            targetDevice = devices[0];
+        }
+
+    }
+    void Update()
+    {
+
+        if (!targetDevice.isValid)
+        {
+            Initlize();
+        }
+        else
+        {
+            Timestop();
+        }
+    }
 
     // Update is called once per frame
-    void Update()
+    void Timestop()
 
     {
-        if (Input.GetKeyDown(KeyCode.Q) && Slowed == false)
+        targetDevice.TryGetFeatureValue(CommonUsages.trigger, out float triggerValue);
+        if (triggerValue > 0.5 && Slowed == false)
         {
                 Slowed = true;
                 Move = true;
@@ -52,7 +81,7 @@ public class TImeSlow : MonoBehaviour
 
 
         }
-        else if (Input.GetKeyDown(KeyCode.Q) && Slowed == true )
+        else if (triggerValue < 0.8 && Slowed == true )
         {
                 Slowed = false;
            
@@ -83,8 +112,7 @@ public class TImeSlow : MonoBehaviour
                 unlock = false;
             }
 
-            Debug.Log("time" + Time.timeScale);
-            Debug.Log("movement speed" + player.movementSpeed);
+     
         }
 
 

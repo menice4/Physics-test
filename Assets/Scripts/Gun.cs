@@ -79,7 +79,7 @@ public class Gun : MonoBehaviour
     private void UpdateGun()
     {
         targetDevice.TryGetFeatureValue(CommonUsages.trigger, out float triggerValue);
-        if (Fired == false && triggerValue > 0.1f  )
+        if (Fired == false && triggerValue > 0.8  )
         {
 
             var bullet = Instantiate(bulletPrefab, bulletSpawnPoint.position, bulletSpawnPoint.rotation);
@@ -88,7 +88,7 @@ public class Gun : MonoBehaviour
 
 
         }
-        else if (Fired == true && triggerValue < 0.1f)
+        else if (Fired == true && triggerValue < 0.5)
         {
             Fired = false;
 
