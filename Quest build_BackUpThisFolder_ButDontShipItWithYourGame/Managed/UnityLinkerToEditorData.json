@@ -175,9 +175,7 @@
           },
           {
             "name": "ComputeShader",
-            "scenes": [
-              "Assets/Scripts/Scenes/TIme_Slow.unity"
-            ],
+            "scenes": [],
             "dependencyType": 0,
             "icon": null
           },
