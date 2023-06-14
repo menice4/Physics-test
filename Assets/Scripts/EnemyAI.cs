@@ -19,6 +19,8 @@ public class EnemyAI : MonoBehaviour
     bool alreadyAttacked;
     public GameObject projectile;
 
+    private Animator animator;
+
 
     public float sightRange, attackRange;
     public bool playerInSightRange, PlayerInAttackRange;
@@ -27,6 +29,7 @@ public class EnemyAI : MonoBehaviour
     {
         player = GameObject.Find("VR_rig").transform;
         agent = GetComponent<NavMeshAgent>();
+        animator = GetComponent<Animator>();
     }
     private void Update()
     {
@@ -36,7 +39,6 @@ public class EnemyAI : MonoBehaviour
         if (!playerInSightRange && !PlayerInAttackRange) Patroling();
         if (playerInSightRange && !PlayerInAttackRange) ChasePlayer();
         if (PlayerInAttackRange && playerInSightRange) AttackPlayer();
-
     }
     private void Patroling()
     {
@@ -49,6 +51,7 @@ public class EnemyAI : MonoBehaviour
 
         if (distanceToWalkPoint.magnitude < 1f)
             walkPointSet = false; 
+        
     }
     private void SearchWalkPoint()
     {

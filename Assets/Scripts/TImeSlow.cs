@@ -31,7 +31,7 @@ public class TImeSlow : MonoBehaviour
         Move = false;
         Slowed = false;
         Debug.Log("time"+Time.timeScale);
-        Debug.Log("Movement speed" + player.movementSpeed);
+       
         Initlize();
 
 
@@ -40,8 +40,9 @@ public class TImeSlow : MonoBehaviour
     private void Initlize()
     {
         List<InputDevice> devices = new List<InputDevice>();
-        InputDeviceCharacteristics leftcontrollerCharacteristics = InputDeviceCharacteristics.Left | InputDeviceCharacteristics.Controller;
-        InputDevices.GetDevicesWithCharacteristics(leftcontrollerCharacteristics, devices);
+        InputDeviceCharacteristics controllerCharacteristics =  InputDeviceCharacteristics.Controller;
+        InputDevices.GetDevicesWithCharacteristics(controllerCharacteristics, devices);
+       
 
         if (devices.Count > 0)
         {
@@ -66,7 +67,7 @@ public class TImeSlow : MonoBehaviour
     void Timestop()
 
     {
-        targetDevice.TryGetFeatureValue(CommonUsages.trigger, out float triggerValue);
+        targetDevice.TryGetFeatureValue(CommonUsages.grip, out float triggerValue);
         if (triggerValue > 0.5 && Slowed == false)
         {
                 Slowed = true;
@@ -77,7 +78,7 @@ public class TImeSlow : MonoBehaviour
         
             
            
-            Debug.Log("Movement speed" + player.movementSpeed);
+            Debug.Log(triggerValue);
 
 
         }

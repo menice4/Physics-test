@@ -6,6 +6,8 @@ TagManager:
   tags:
   - Bullet
   - Enemy
+  - wall
+  - hook
   layers:
   - Default
   - TransparentFX
@@ -19,8 +21,8 @@ TagManager:
   - IsPlayer
   - IsWall
   - IsFloor
-  - 
-  - 
+  - IsHook
+  - IsGrappling
   - 
   - 
   - 

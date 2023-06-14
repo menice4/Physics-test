@@ -16,6 +16,14 @@ PrefabInstance:
       propertyPath: m_Name
       value: Enemy bullet
       objectReference: {fileID: 0}
+    - target: {fileID: 2936597139142187506, guid: 48bc2233d639344469c27cb1f6446cb5, type: 3}
+      propertyPath: m_Layer
+      value: 15
+      objectReference: {fileID: 0}
+    - target: {fileID: 6832258539748229556, guid: 48bc2233d639344469c27cb1f6446cb5, type: 3}
+      propertyPath: m_Materials.Array.data[0]
+      value: 
+      objectReference: {fileID: 2100000, guid: 65613a587d6883a44bb90fad52d03195, type: 2}
     - target: {fileID: 7665350052396419358, guid: 48bc2233d639344469c27cb1f6446cb5, type: 3}
       propertyPath: m_Enabled
       value: 0
@@ -27,6 +35,18 @@ PrefabInstance:
     - target: {fileID: 9204925171904236093, guid: 48bc2233d639344469c27cb1f6446cb5, type: 3}
       propertyPath: m_RootOrder
       value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 9204925171904236093, guid: 48bc2233d639344469c27cb1f6446cb5, type: 3}
+      propertyPath: m_LocalScale.x
+      value: 0.0642927
+      objectReference: {fileID: 0}
+    - target: {fileID: 9204925171904236093, guid: 48bc2233d639344469c27cb1f6446cb5, type: 3}
+      propertyPath: m_LocalScale.y
+      value: 0.0642927
+      objectReference: {fileID: 0}
+    - target: {fileID: 9204925171904236093, guid: 48bc2233d639344469c27cb1f6446cb5, type: 3}
+      propertyPath: m_LocalScale.z
+      value: 0.09090345
       objectReference: {fileID: 0}
     - target: {fileID: 9204925171904236093, guid: 48bc2233d639344469c27cb1f6446cb5, type: 3}
       propertyPath: m_LocalPosition.x

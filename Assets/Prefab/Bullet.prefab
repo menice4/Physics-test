@@ -14,7 +14,7 @@ GameObject:
   - component: {fileID: 7665350052396419358}
   - component: {fileID: 6839974331289443618}
   - component: {fileID: -4525592609251894385}
-  m_Layer: 0
+  m_Layer: 15
   m_Name: Bullet
   m_TagString: Bullet
   m_Icon: {fileID: 0}
@@ -148,5 +148,4 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   life: 3
   enemy: 0
-  Health: 0
   Enemy: {fileID: -8347595402340077023, guid: e257add4c2985ff4dac36600b132f171, type: 3}
